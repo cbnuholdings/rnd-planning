@@ -1,0 +1,32 @@
+{
+	admin off
+	auto_https off
+	persist_config off
+}
+
+:{$PORT:8080} {
+	root * /srv
+	encode gzip
+
+	# SPA — 실제 파일이 없으면 index.html 로 넘긴다(새로고침·직접 진입 대응)
+	try_files {path} /index.html
+	file_server
+
+	header {
+		X-Content-Type-Options nosniff
+		X-Frame-Options SAMEORIGIN
+		Referrer-Policy strict-origin-when-cross-origin
+	}
+
+	# 해시가 박힌 빌드 자산은 길게, 진입 문서·설정은 짧게
+	@hashed path /assets/*
+	header @hashed Cache-Control "public, max-age=31536000, immutable"
+
+	@entry path / /index.html /config.json
+	header @entry Cache-Control "no-cache"
+
+	log {
+		output stdout
+		format console
+	}
+}
