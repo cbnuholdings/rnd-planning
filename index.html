@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <!-- ★2026-09-04 속도 — 전체 가변 폰트(woff2 2,057,688B 실측)를 렌더 차단으로 받던 것을
+         dynamic-subset(유니코드 범위별 조각·필요한 글리프만)으로 바꾸고 preload 로 비차단 로드한다. 글꼴 외형 동일. -->
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" /></noscript>
     <title>이노테크 R&D 기획지원 — 충북대학교기술지주</title>
-    <script type="module" crossorigin src="./assets/index-3kG7sZru.js"></script>
+    <script type="module" crossorigin src="./assets/index-Bzcpcgwl.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-CLL2ld0i.css">
   </head>
   <body>
